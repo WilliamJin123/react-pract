@@ -19,13 +19,13 @@ function handleChangeReducer(draft, action){
 }
 export default function App() {
 
-  const [form, dispatch] = useImmerReducer(handleChangeReducer, {
+  const [form, dispatchForm] = useImmerReducer(handleChangeReducer, {
     email: "",
     firstName: "",
     lastName: "",
   })
   
-  // const [form, dispatch] = useReducer(handleChangeReducer. {
+  // const [form, dispatchForm] = useReducer(handleChangeReducer. {
   //   email: "",
   //   firstName: "",
   //   lastName: "",
@@ -38,7 +38,7 @@ export default function App() {
   
   function handleChange(event) {
     const {name, value} = event.target;
-    dispatch({
+    dispatchForm({
       type: 'setField',
       name: name,
       value: value
@@ -46,7 +46,7 @@ export default function App() {
   }
   function handleSubmit(event){
     event.preventDefault();
-    dispatch({
+    dispatchForm({
       type: 'reset'
     })
 
