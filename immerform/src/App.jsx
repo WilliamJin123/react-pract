@@ -1,6 +1,6 @@
 import "./App.css"
 import {useImmer, useImmerReducer} from 'use-immer'
-
+import { useReducer } from "react"
 
 function handleChangeReducer(draft, action){
   switch(action.type){
@@ -24,6 +24,12 @@ export default function App() {
     firstName: "",
     lastName: "",
   })
+  
+  // const [form, dispatch] = useReducer(handleChangeReducer. {
+  //   email: "",
+  //   firstName: "",
+  //   lastName: "",
+  // })
   // const [form, setForm] = useImmer ({
   //   email: "",
   //   firstName: "",
