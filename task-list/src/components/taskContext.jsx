@@ -42,17 +42,18 @@ export function handleDispatchTask(draft, action) {
             draft[action.id].checked = !action.checked
             break
         case "delete":
-            return draft.filter(item => item.id !== action.id)
+            const index = draft.findIndex(item => item.id === action.id);
+            if (index !== -1) {
+                draft.splice(index, 1);
+            }
             break
         case "add":
             draft.unshift({
-                id: 0,
+                id: draft.length,
                 checked: false,
                 value: action.value
             })
-            for (let i = 0; i < draft.length; i++){
-                draft[i].id++
-            }
+            
             break
         default:
             console.log("invalid dispatch")
